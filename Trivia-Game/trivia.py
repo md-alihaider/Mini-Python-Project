@@ -1,11 +1,7 @@
+import random
+
 #list of questions
 #store answer to questions
-#randomly pick the question
-#ask the question
-#check the answer
-#keep the track of score
-#tell there score
-import random
 questions = {
     "What is the keyword to define a function in Python?": "def",
     "Which data type is used to store True or False values?": "boolean",
@@ -24,19 +20,25 @@ def python_trivia_game():
     total_questions = 5
     total_score = 0
 
+    
+    #randomly pick the question
     selected_questions = random.sample(questions_list, total_questions)
 
     for idx, question in enumerate(selected_questions):
         print(f"{idx + 1}. {question}")
+        #ask the question
         user_answer = input("Your answer: ").lower().strip()
         correct_answer = questions[question]
 
+        #check the answer
         if user_answer == correct_answer:
             print("Correct!\n")
+            #keep the track of score
             total_score += 1
         else:
             print(f"Wrong. The correct answer is: {correct_answer}.\n")
     
+    #tell there score
     print(f"Game Over! Your final score is: {total_score}/{total_questions}")
 
 
